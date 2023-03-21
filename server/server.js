@@ -10,12 +10,13 @@ console.log(process.env.OPENAI_API_KEY)
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
 const openai = new OpenAIApi(configuration);
 
 const app = express()
-app.use(cors())
-app.use(express.json());
+app.use(cors({
+  origin: 'https://dabky17-md-gmailcom.vercel.app'
+}))
+app.use(express.json())
 
 app.get('/', async (req, res) => {
   res.status(200).send({
@@ -36,7 +37,6 @@ app.post('/', async (req, res) => {
       frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
       presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
     });
-    
 
     res.status(200).send({
         bot: response.data.choices[0].text
@@ -46,4 +46,6 @@ app.post('/', async (req, res) => {
         res.status(500).send(error);
       }
     })
-    app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
+
+const PORT = 5000
+app.listen(PORT, () => console.log(`Server is running on port http://localhost:${PORT}`));
