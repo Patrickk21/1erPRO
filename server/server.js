@@ -12,19 +12,15 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const app = express()
-
-app.use(cors({
-  origin: 'https://pirlo11-ma17dabky-gmailcom.vercel.app'
-}))
-
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 app.get('/', async (req, res) => {
   res.status(200).send({
     message: 'Hello from CodeX!'
   })
-})
+});
 
 app.post('/', async (req, res) => {
   try {
@@ -45,7 +41,7 @@ app.post('/', async (req, res) => {
       })
     } catch (error) {
         console.log(error)
-        res.status(500).send(error);
+        res.status(500).send(error)
       }
     })
 
