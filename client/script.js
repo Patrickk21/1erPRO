@@ -10,10 +10,7 @@ function loader(element) {
     element.textContent = ''
 
     loadInterval = setInterval(() => {
-        // Update the text content of the loading indicator
         element.textContent += '.';
-
-        // If the loading indicator has reached three dots, reset it
         if (element.textContent === '....') {
             element.textContent = '';
         }
@@ -25,8 +22,8 @@ function typeText(element, text) {
 
     let interval = setInterval(() => {
         if (index < text.length) {
-            element.innerHTML += text.charAt(index)
-            index++
+            element.innerHTML += text.charAt(index);
+            index++;
         } else {
             clearInterval(interval)
         }
@@ -86,18 +83,15 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    //fetch data from server - bot's response
-
-    const response = await fetch('https://codek.onrender.com/'
-    , {
+    const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+             prompt: data.get('prompt')
         })
-    })
+    });
 
     clearInterval(loadInterval)
     messageDiv.innerHTML = '';
