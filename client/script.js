@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://primodbk.onrender.com', {
+    const response = await fetch('https://codex11.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
