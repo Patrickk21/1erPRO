@@ -76,7 +76,9 @@ body {
   align-items: center;
 }
 
-
+.ai .profile {
+  background: #f50505;
+}
 
 .profile img {
   width: 60%;
