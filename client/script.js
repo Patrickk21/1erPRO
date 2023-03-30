@@ -15,7 +15,7 @@ function displayChatHistory() {
 }
 
 let loadInterval
-
+displayChatHistory()
 function loader(element) {
     element.textContent = ''
 
