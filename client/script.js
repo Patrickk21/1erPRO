@@ -1,4 +1,4 @@
-import bot from './assets/bot.svg'
+import bot from './assets/my-bot-image.svg'
 import user from './assets/user.svg'
 
 const form = document.querySelector('form')
@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://codex11.onrender.com/', {
+    const response = await fetch('https://co11dm.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
