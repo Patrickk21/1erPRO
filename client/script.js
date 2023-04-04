@@ -1,4 +1,4 @@
-import bot from './assets/my-bot-image.svg'
+import bot from './assets/DBK.svg'
 import user from './assets/user.svg'
 
 const form = document.querySelector('form')
